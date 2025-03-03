@@ -1,0 +1,214 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="p-5 mb-4 sentiment-jumbotron">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold">About the Sentiment Analyzer</h1>
+        <p class="col-md-8 fs-4">Understanding how our sentiment analysis works and the technology behind it.</p>
+    </div>
+</div>
+
+<div class="row mb-5">
+    <div class="col-md-8">
+        <h2 class="section-heading">How It Works</h2>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title"><i class="fas fa-magic me-2"></i>Sentiment Analysis</h3>
+                <p>Our sentiment analysis tool uses Natural Language Processing (NLP) techniques to determine the emotional tone behind movie and TV show reviews. The analysis classifies text as:</p>
+                
+                <div class="row text-center mb-3">
+                    <div class="col-md-4">
+                        <div class="card bg-success bg-opacity-25 mb-3">
+                            <div class="card-body">
+                                <h5><i class="fas fa-smile me-2"></i>Positive</h5>
+                                <p class="mb-0">Score ≥ 0.05</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-secondary bg-opacity-25 mb-3">
+                            <div class="card-body">
+                                <h5><i class="fas fa-meh me-2"></i>Neutral</h5>
+                                <p class="mb-0">-0.05 < Score < 0.05</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-danger bg-opacity-25 mb-3">
+                            <div class="card-body">
+                                <h5><i class="fas fa-frown me-2"></i>Negative</h5>
+                                <p class="mb-0">Score ≤ -0.05</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>We use NLTK's VADER (Valence Aware Dictionary and sEntiment Reasoner) sentiment analyzer, which is specifically attuned to sentiments expressed in social media and works well with movie reviews.</p>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title"><i class="fas fa-cogs me-2"></i>Technical Details</h3>
+                <p>Our application is built using the following technologies:</p>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Backend</h5>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item"><i class="fab fa-python me-2"></i>Python with Flask framework</li>
+                            <li class="list-group-item"><i class="fas fa-language me-2"></i>NLTK for sentiment analysis</li>
+                            <li class="list-group-item"><i class="fas fa-table me-2"></i>Pandas for data handling</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h5>Frontend</h5>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item"><i class="fab fa-html5 me-2"></i>HTML5 / <i class="fab fa-css3-alt me-2"></i>CSS3</li>
+                            <li class="list-group-item"><i class="fab fa-bootstrap me-2"></i>Bootstrap 5</li>
+                            <li class="list-group-item"><i class="fab fa-js me-2"></i>JavaScript with Chart.js and D3.js</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title"><i class="fas fa-lightbulb me-2"></i>Features</h3>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3 card-hover">
+                            <div class="card-body">
+                                <h5><i class="fas fa-keyboard me-2"></i>Text Analysis</h5>
+                                <p>Enter any review text to analyze its sentiment and extract key terms.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card mb-3 card-hover">
+                            <div class="card-body">
+                                <h5><i class="fas fa-database me-2"></i>Dataset Analysis</h5>
+                                <p>Analyze pre-loaded datasets of movie and TV show reviews.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card mb-3 card-hover">
+                            <div class="card-body">
+                                <h5><i class="fas fa-chart-pie me-2"></i>Visualizations</h5>
+                                <p>View sentiment distribution through interactive charts and graphs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card mb-3 card-hover">
+                            <div class="card-body">
+                                <h5><i class="fas fa-cloud me-2"></i>Word Cloud</h5>
+                                <p>Visualize the most frequent terms in the analyzed reviews.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0"><i class="fas fa-question-circle me-2"></i>FAQ</h4>
+            </div>
+            <div class="card-body">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                How accurate is the sentiment analysis?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Our sentiment analyzer uses VADER, which is specifically designed for social media text and short reviews. It typically achieves 70-80% accuracy on movie reviews. However, it may struggle with sarcasm, complex sentences, or industry-specific terminology.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                What datasets are included?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                We include two pre-loaded datasets: 30 popular movie reviews and 30 TV show reviews. These datasets include both positive and negative reviews for a variety of titles to demonstrate the analyzer's capabilities.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                How are key terms extracted?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Key terms are extracted using natural language processing techniques. We tokenize the text, remove stop words (common words like "the", "a", etc.), and then count the frequency of the remaining words to identify the most significant terms in the review.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Can I save or export the results?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Currently, results are stored in your browser session and will be available until you clear your browser data or click the "Clear Results" button. Future versions may include the ability to export results to CSV or PDF formats.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mt-4">
+            <div class="card-body">
+                <h4 class="card-title"><i class="fas fa-book me-2"></i>Resources</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href="https://www.nltk.org/" target="_blank" class="text-decoration-none">
+                            <i class="fas fa-external-link-alt me-2"></i>NLTK Documentation
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="https://flask.palletsprojects.com/" target="_blank" class="text-decoration-none">
+                            <i class="fas fa-external-link-alt me-2"></i>Flask Documentation
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="https://www.chartjs.org/" target="_blank" class="text-decoration-none">
+                            <i class="fas fa-external-link-alt me-2"></i>Chart.js Documentation
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="https://d3js.org/" target="_blank" class="text-decoration-none">
+                            <i class="fas fa-external-link-alt me-2"></i>D3.js Documentation
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

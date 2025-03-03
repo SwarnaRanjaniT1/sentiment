@@ -1,0 +1,86 @@
+/* Custom styles for the sentiment analysis application */
+
+/* Gradient background for jumbotron */
+.sentiment-jumbotron {
+    background: linear-gradient(to right, #1a1a1a, #2d3748);
+    color: #fff;
+    border-radius: 0.5rem;
+}
+
+/* Styling for the sentiment cards */
+.sentiment-positive {
+    border-left: 5px solid var(--bs-success);
+}
+
+.sentiment-negative {
+    border-left: 5px solid var(--bs-danger);
+}
+
+.sentiment-neutral {
+    border-left: 5px solid var(--bs-secondary);
+}
+
+/* Loading spinner styles */
+.loading-spinner {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Smooth fade for results */
+.results-fade-in {
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Word cloud container */
+#wordCloud {
+    width: 100%;
+    height: 300px;
+}
+
+/* Card titles */
+.card-title {
+    font-weight: 600;
+}
+
+/* Section headings */
+.section-heading {
+    border-bottom: 2px solid var(--bs-primary);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Chart containers */
+.chart-container {
+    position: relative;
+    height: 300px;
+    margin-bottom: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chart-container {
+        height: 250px;
+    }
+    
+    #wordCloud {
+        height: 200px;
+    }
+}
+
+/* Bottom navigation */
+.bottom-nav {
+    background-color: var(--bs-dark);
+    padding: 1rem 0;
+}
+
+/* Hoverable cards */
+.card-hover:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}

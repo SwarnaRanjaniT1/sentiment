@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- Jumbotron Header -->
+<div class="p-5 mb-4 sentiment-jumbotron">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold">Movie & TV Show Sentiment Analyzer</h1>
+        <p class="col-md-8 fs-4">Discover the sentiment behind reviews and opinions about your favorite movies and TV shows.</p>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <!-- Text Analysis Section -->
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h4 class="mb-0"><i class="fas fa-keyboard me-2"></i>Analyze Text</h4>
+            </div>
+            <div class="card-body">
+                <p>Enter a movie or TV show review to analyze its sentiment:</p>
+                <form id="textAnalysisForm">
+                    <div class="mb-3">
+                        <textarea class="form-control" id="textInput" name="text" rows="5" placeholder="Enter your review here..."></textarea>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button id="analyzeTextBtn" type="submit" class="btn btn-primary">
+                            <i class="fas fa-search me-2"></i>Analyze Sentiment
+                        </button>
+                    </div>
+                    <div id="textAnalysisLoading" class="d-none text-center mt-3">
+                        <div class="spinner-border text-primary loading-spinner" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Analyzing text...</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dataset Analysis Section -->
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h4 class="mb-0"><i class="fas fa-database me-2"></i>Analyze Dataset</h4>
+            </div>
+            <div class="card-body">
+                <p>Select a dataset of reviews to analyze in bulk:</p>
+                <form id="datasetForm">
+                    <div class="mb-3">
+                        <select class="form-select" id="datasetSelect" name="dataset">
+                            <option value="" selected disabled>Select a dataset</option>
+                            <option value="movies">Movie Reviews</option>
+                            <option value="tv">TV Show Reviews</option>
+                        </select>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button id="analyzeDatasetBtn" type="submit" class="btn btn-secondary">
+                            <i class="fas fa-chart-bar me-2"></i>Analyze Dataset
+                        </button>
+                    </div>
+                    <div id="datasetAnalysisLoading" class="d-none text-center mt-3">
+                        <div class="spinner-border text-secondary loading-spinner" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Analyzing dataset... This may take a moment.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Visualizations Section -->
+<div id="visualizationsContainer" class="mb-5 d-none">
+    <h2 class="section-heading">Sentiment Analysis Visualizations</h2>
+    
+    <div class="row mb-4">
+        <!-- Pie Chart -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Sentiment Distribution</h4>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="sentimentPieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Word Cloud -->
+        <div id="wordCloudContainer" class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="fas fa-cloud me-2"></i>Word Cloud</h4>
+                </div>
+                <div class="card-body">
+                    <div id="wordCloud"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Title-based Bar Chart -->
+    <div id="titleChartContainer" class="d-none">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Sentiment by Title</h4>
+            </div>
+            <div class="card-body">
+                <div class="chart-container" style="height: 400px;">
+                    <canvas id="titleBarChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Results Section -->
+<div class="mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="section-heading mb-0">Analysis Results</h2>
+        <button id="clearResultsBtn" class="btn btn-outline-danger d-none">
+            <i class="fas fa-trash-alt me-2"></i>Clear Results
+        </button>
+    </div>
+    
+    <div id="resultsContainer" class="results-fade-in">
+        <!-- Results will be dynamically added here -->
+    </div>
+</div>
+{% endblock %}
